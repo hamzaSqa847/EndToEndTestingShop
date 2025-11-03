@@ -8,12 +8,12 @@ export class AddProductCard {
     }
 
 
-    async AddProductinCard() {
+    // async AddProductinCard() {
 
-        await this.page.getByRole('button', { name: 'Add to Cart' }).first().click();
-        await expect(this.page.getByText('Product added to cart!')).toBeVisible();
+    //     await this.page.getByRole('button', { name: 'Add to Cart' }).first().click();
+    //     await expect(this.page.getByText('Product added to cart!')).toBeVisible();
 
-    }
+    // }
 
     async VerifyProductinCard() {
         await this.page.getByText('🛒').click();
