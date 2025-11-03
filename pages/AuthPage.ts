@@ -7,12 +7,12 @@ export class AuthPage {
         this.page = page;
     }
 
-    async register(name: String, email: string, password: string, comfirmpasword: string) {
+    async register(name: string, email: string, password: string, comfirmpasword: string) {
         await this.page.getByRole('link', { name: 'Register' }).click();
-        await this.page.getByRole('textbox', { name: 'Enter your full name' }).fill('Hamza');
-        await this.page.getByRole('textbox', { name: 'Enter your email' }).fill('hamzaicp54@gmail.com');
-        await this.page.getByRole('textbox', { name: 'Create a password' }).fill('Applemango1!');
-        await this.page.getByRole('textbox', { name: 'Confirm your password' }).fill('Applemango1!');
+        await this.page.getByRole('textbox', { name: 'Enter your full name' }).fill(name);
+        await this.page.getByRole('textbox', { name: 'Enter your email' }).fill(email);
+        await this.page.getByRole('textbox', { name: 'Create a password' }).fill(password);
+        await this.page.getByRole('textbox', { name: 'Confirm your password' }).fill(comfirmpasword);
 
     }
 
@@ -31,14 +31,14 @@ export class AuthPage {
 
     async login(email: string, password: string) {
         await this.page.getByRole('link', { name: 'Login' }).click();
-        await this.page.getByRole('textbox', { name: 'Enter your email' }).fill('hamzaicp54@gmail.com');
-        await this.page.locator("#loginPassword").fill('Applemango1!');
+        await this.page.getByRole('textbox', { name: 'Enter your email' }).fill(email);
+        await this.page.locator("#loginPassword").fill(password);
     }
 
     async verifyLogin() {
 
         await this.page.getByRole('button', { name: 'Login' }).click();
-        await expect(this.page.getByText('Welcome back, Hamza!')).toBeVisible();
+        await expect(this.page.getByText('Welcome back, Muhammad Hamza!')).toBeVisible();
 
     }
 
